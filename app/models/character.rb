@@ -1,5 +1,7 @@
 class Character < ApplicationRecord
 
+    belongs_to :killteam
+
     def apply_damage(damage_amount)
         self.update(current_wounds: self.current_wounds - damage_amount)
     end
@@ -32,4 +34,13 @@ end
 #  total_wounds   :integer          not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  killteam_id    :integer          not null
+#
+# Indexes
+#
+#  index_characters_on_killteam_id  (killteam_id)
+#
+# Foreign Keys
+#
+#  killteam_id  (killteam_id => killteams.id)
 #

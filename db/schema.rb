@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_06_29_182804) do
+ActiveRecord::Schema[7.2].define(version: 2024_06_29_194140) do
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -19,5 +19,15 @@ ActiveRecord::Schema[7.2].define(version: 2024_06_29_182804) do
     t.integer "current_wounds"
     t.boolean "is_injured", default: false, null: false
     t.integer "total_wounds", null: false
+    t.integer "killteam_id", null: false
+    t.index ["killteam_id"], name: "index_characters_on_killteam_id"
   end
+
+  create_table "killteams", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "characters", "killteams"
 end
