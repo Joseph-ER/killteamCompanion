@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Character, type: :model do
-when "Creating character"
-  character = Character.new(name: "Typhus", alive: true)
+  context "Creating character" do
+    let(:character){ Character.new(name: "Typhus", alive: true, wounds: 12) }
 
-  it "has valid name" do
-    character = Character.new(name: "Typhus")
-    expect(character).to be_valid
+    it{expect(character).to be_valid}
+    it{expect(character.name).to eq("Typhus")}
+    it{expect(character.alive).to be true}
+    it{expect(character.wounds).to eq(12)}
   end
 end
