@@ -1,0 +1,9 @@
+<h1>Killteams- all</h1>
+  <ul>
+    <% @killteams.each do |killteam| %>
+      <li>
+        <%= link_to killteam.name, killteam_path(killteam) %>
+      </li>
+    <% end %>
+  </ul>
+

@@ -1,0 +1,11 @@
+<h1>Killteams- <%= @killteam.name %></h1>
+<h2>Characters</h2>
+<ul>
+    <% @killteam.characters.each do |character| %>
+    <li>
+        <%= character.name %> - Total Wounds: <%= character.total_wounds %>
+    </li>
+    <% end %>
+
+    </ul>
+<%= link_to 'Back to all Killteams', killteams_path %>
