@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Character, type: :model do
-  let(:character){ Character.new(name: "Typhus", total_wounds: 12, current_wounds: 12, alive: true, is_injured: false) }
+  let(:killteam) { Killteam.create(name: "Palid Hand") }
+  let(:character){ Character.new(name: "Typhus", total_wounds: 12, current_wounds: 12, alive: true, is_injured: false, killteam: killteam) }
 
   context "Creating character" do
 
